@@ -15,6 +15,15 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
 Route::get('/widgets',[
+	'as' => 'widgets',
 	'uses' => 'WidgetController@index'
 ]);
+
+Route::post('/create',[	
+	'uses' => 'WidgetController@create'
+]);
+
+
+Route::resource('api/widgets', 'WidgetController');
